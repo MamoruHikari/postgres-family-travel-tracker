@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import session from 'express-session';
+import connectPgSimple from 'connect-pg-simple';
 
 const app = express();
 const port = process.env.PORT || 3000; 
@@ -11,6 +12,19 @@ const db = new pg.Client({
 });
 
 db.connect();
+
+const PgSession = connectPgSimple(session);
+
+app.use(session({
+  store: new PgSession({
+    pool: db,
+    tableName: 'session',
+  }),
+  secret: 'a93kd7Gh!sDk4pQe5zB&9mX@tWn2rVc',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
