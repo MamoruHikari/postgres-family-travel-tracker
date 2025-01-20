@@ -13,19 +13,6 @@ const db = new pg.Client({
 
 db.connect();
 
-const PgSession = connectPgSimple(session);
-
-app.use(session({
-  store: new PgSession({
-    pool: db,
-    tableName: 'session',
-  }),
-  secret: 'a93kd7Gh!sDk4pQe5zB&9mX@tWn2rVc',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}));
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
