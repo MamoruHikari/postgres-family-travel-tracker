@@ -73,27 +73,37 @@ app.post("/add", async (req, res) => {
   const userID = req.session.activeUser;
   const countryInput = req.body.country;
 
+  const client = await db.connect();
+
   try {
-    const result = await db.query("SELECT country_code FROM countries WHERE country_name ILIKE $1", [`%${countryInput}%`]);
+    await client.query('BEGIN');
+    
+    const result = await client.query("SELECT country_code FROM countries WHERE country_name ILIKE $1", [`%${countryInput}%`]);
 
     if (result.rows.length === 0) {
+      await client.query('ROLLBACK');
       return res.redirect(`/user?id=${userID}&error=Country doesn't exist. Please try again.`);
     }
 
     const countryCode = result.rows[0].country_code;
-    const existing = await db.query("SELECT 1 FROM visited_countries WHERE country_code = $1 AND user_id = $2", [countryCode, userID]);
+    const existing = await client.query("SELECT 1 FROM visited_countries WHERE country_code = $1 AND user_id = $2", [countryCode, userID]);
 
     if (existing.rows.length > 0) {
+      await client.query('ROLLBACK');
       return res.redirect(`/user?id=${userID}&error=Country has already been added. Please try again.`);
     }
 
-    await db.query("INSERT INTO visited_countries (country_code, user_id) VALUES ($1, $2)", [countryCode, userID]);
+    await client.query("INSERT INTO visited_countries (country_code, user_id) VALUES ($1, $2)", [countryCode, userID]);
 
+    await client.query('COMMIT');
     res.redirect(`/user?id=${userID}`);
 
   } catch (error) {
+    await client.query('ROLLBACK');
     console.error("An error occurred:", error.message);
     res.status(500).redirect("/?error=An unexpected error occurred. Please try again");
+  } finally {
+    client.release();
   }
 });
 
