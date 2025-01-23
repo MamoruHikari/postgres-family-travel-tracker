@@ -8,8 +8,9 @@ Check out the deployed app here: [Postgres Family Travel Tracker](https://postgr
 
 - Tracks visited countries for each user.
 - Fetches data dynamically from a PostgreSQL database.
+- Allows adding new countries to users.
+- Allows adding new users/family members with unique colors for distinction.
 - Serves a static webpage with interactive elements using EJS.
-- Supports user sessions for personalized experiences.
 
 ## License
 
