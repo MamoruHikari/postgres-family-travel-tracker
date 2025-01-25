@@ -13,7 +13,6 @@ Check out the deployed app here: [Postgres Family Travel Tracker](https://postgr
 - **Dynamic Updates**: Display data (e.g., visited countries, total count) dynamically based on user interactions.  
 - **Interactive UI**: Built with EJS templates to deliver a responsive and user-friendly interface.  
 - **Error Feedback**: Provide clear error messages for issues like duplicate entries or incomplete details.  
-- **Session Handling**: Track the currently active user session for a personalized experience.  
 
 ## Tech Stack
 - **Frontend**: HTML, CSS, EJS for templating.  
