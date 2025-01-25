@@ -4,6 +4,7 @@ An interactive web application designed to track family travels and visited coun
 
 ## Deployed Application
 Check out the deployed app here: [Postgres Family Travel Tracker](https://postgres-family-travel-tracker.onrender.com).
+
 *Note*: The app is hosted on the free tier of Render, so it may take up to 60 seconds to load.
 
 ## Features
