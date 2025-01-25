@@ -22,12 +22,10 @@ Check out the deployed app here: [Postgres Family Travel Tracker](https://postgr
 - **Middleware**: `body-parser` for parsing form data, `express-session` for session handling.  
 
 ## Future Enhancements
-1. **Advanced Statistics**: Add insights like the most visited countries, total number of countries visited, and travel trends.  
-2. **Search and Filter**: Implement search functionality to filter countries or users.  
-3. **User Authentication**: Introduce secure login and signup features for individual users.  
-4. **Map Integration**: Visualize visited countries on an interactive world map.  
-5. **Mobile Optimization**: Enhance the UI/UX for smaller screens and improve responsiveness.  
-6. **Dark Mode**: Add a toggle for light and dark modes to improve accessibility.  
+1. **Search and Filter**: Implement search functionality to filter countries or users.  
+2. **User Authentication**: Introduce secure login and signup features for individual users.  
+3. **Mobile Optimization**: Enhance the UI/UX for smaller screens and improve responsiveness.  
+4. **Dark Mode**: Add a toggle for light and dark modes to improve accessibility.  
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.  
