@@ -3,7 +3,8 @@
 An interactive web application designed to track family travels and visited countries. Built with a focus on simplicity, functionality, and engaging design, this app uses Node.js, Express, and PostgreSQL for seamless data management and dynamic rendering.
 
 ## Deployed Application
-Check out the deployed app here: [Postgres Family Travel Tracker](https://postgres-family-travel-tracker.onrender.com). *Note*: The app is hosted on the free tier of Render, so it may take up to 60 seconds to load.
+Check out the deployed app here: [Postgres Family Travel Tracker](https://postgres-family-travel-tracker.onrender.com).
+*Note*: The app is hosted on the free tier of Render, so it may take up to 60 seconds to load.
 
 ## Features
 - **User Management**: Add new family members with unique names and assign custom colors for easy distinction.  
